@@ -5,7 +5,7 @@
   <artifactId>trucks</artifactId>
   <packaging>war</packaging>
   <version>1.0.0</version>
-  <name>trucksMavenWebapp</name>
+  <name>trucks Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
