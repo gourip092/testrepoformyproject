@@ -38,7 +38,7 @@ pipeline{
         stage ('DevDeploy') {
             steps {
                 sshagent(['deploy_user']) {
-                    sh "scp test/target/trucks.war ec2-user@13.232.12.89:/opt/tomcat10/webapps"
+                    sh "scp -o StrictHostKeyChecking=no test/target/trucks.war ec2-user@13.232.12.89:/opt/tomcat10/webapps"
                 }
             }
         }
