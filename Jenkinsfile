@@ -15,7 +15,7 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
-        /*stage ('Nexus Upload') {
+        stage ('Nexus Upload') {
 		
             steps {
                 nexusArtifactUploader artifacts: [
@@ -32,13 +32,13 @@ pipeline{
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'sampleapp-release', 
-                version: '1.0.3'
+                version: '1.0.4'
             }
-        }*/
+        }
         stage ('DevDeploy') {
             steps {
                 sshagent(['deploy_user']) {
-                    sh "scp -o StrictHostKeyChecking=no test/target/trucks.war ec2-user@13.232.12.89:/opt/tomcat10/webapps"
+                    sh 'scp -o StrictHostKeyChecking=no target/trucks.war ec2-user@13.232.12.89:/opt/tomcat10/webapps'
                 }
             }
         }
