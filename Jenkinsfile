@@ -15,7 +15,7 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
-        stage ('Nexus Upload') {
+        /*stage ('Nexus Upload') {
 		
             steps {
                 nexusArtifactUploader artifacts: [
@@ -34,7 +34,7 @@ pipeline{
                 repository: 'sampleapp-release', 
                 version: '1.0.3'
             }
-        }
+        }*/
         stage ('DevDeploy') {
             steps {
                 sshagent(['deploy_user']) {
