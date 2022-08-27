@@ -16,6 +16,7 @@ pipeline{
             }
         }
         stage ('Nexus Upload') {
+		
             steps {
                 nexusArtifactUploader artifacts: [
                     [
@@ -27,11 +28,18 @@ pipeline{
                     
                 ], credentialsId: 'nexus3',
                 groupId: 'com.companyname.automobile', 
-                nexusUrl: '52.66.152.193:8081', 
+                nexusUrl: '13.127.23.43:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'sampleapp-release', 
                 version: '1.0.3'
+            }
+        }
+        stage ('DevDeploy') {
+            steps {
+                sshagent(['deploy_user']) {
+                    sh "scp test/target/trucks.war ec2-user@13.232.12.89:/opt/tomcat10/webapps"
+                }
             }
         }
     }
