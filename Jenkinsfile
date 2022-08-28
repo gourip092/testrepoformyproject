@@ -28,7 +28,7 @@ pipeline{
                     
                 ], credentialsId: 'nexus3',
                 groupId: 'com.companyname.automobile', 
-                nexusUrl: '13.127.23.43:8081', 
+                nexusUrl: '65.0.29.89:8081', 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'sampleapp-release', 
