@@ -32,7 +32,7 @@ pipeline{
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'sampleapp-release', 
-                version: '1.0.4'
+                version: '1.0.5'
             }
         }
         stage ('DevDeploy') {
